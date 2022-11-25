@@ -16,7 +16,7 @@ class Network(object):
     self.weights = [np.random.rand(y, x) for x, y in zip(sizes[:-1], sizes[1:])]
 
   def feedforward(self, a):
-    # TODO understand this for loop!
+    # this loops over all the tuples in the list
     for b, w in zip(self.biases, self.weights):
       # this calculates the final output activation, because it goes through all tuples of weights and biases and calculates the activation for each neuron
       a = sigmoid(np.dot(w, a) + b)
