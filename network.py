@@ -31,16 +31,16 @@ class Network(object):
   def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
     if test_data: n_test = len(test_data)
     n = len(training_data)
-    for j in xrange(epochs:
+    for j in xrange(epochs):
       random.shuffle(training_data)
       # xrange(start, stop, step size)
       mini_batches = [training_data[k:k+mini_batch_size] for k in xrange(0, n, mini_batch_size)]
       for mini_batch in mini_batches:
         self.update_mini_batch(mini_batch, eta)
       if test_data:
-        print "Epoch {0}: {1} / {2}".format(j, self.evalue(test_data), n_test)
+        print("Epoch {0}: {1} / {2}".format(j, self.evalue(test_data), n_test))
       else:
-        print "Epoch {0} complete".format(j)
+        print("Epoch {0} complete".format(j))
 
   def update_mini_batch(self, mini_batch, eta):
     # TODO so basically the cost function derivatives in the mini batch are added up and then the average is subtracted/added from the weight/bias
@@ -70,7 +70,7 @@ class Network(object):
       activations.append(activation)
     # backward pass
     # not so sure if that syntax will work
-    delta = self.cost_derivative(activations[-1, y]) * \ sigmoid_prime(zs[-1]))
+    delta = self.cost_derivative(activations[-1, y]) * sigmoid_prime(zs[-1])
     nabla_b[-1] = delta
     nabla_w[-1] = np.dot(delta, activations[-2].transpose())
     for l in xrange(2, self.num_layers):
