@@ -1,6 +1,6 @@
 # load the MINIST dataset here
 import gzip
-import cPickle 
+import cPickle
 
 import numpy as np
 
