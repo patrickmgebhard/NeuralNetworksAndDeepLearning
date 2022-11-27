@@ -1,6 +1,6 @@
 # load the MINIST dataset here
-import cPickle 
 import gzip
+import cPickle 
 
 import numpy as np
 
@@ -13,7 +13,7 @@ def load_data():
     #return (training_data[0].shape, training_data[0][0], training_data[1].shape, training_data[1][0], validation_data[0].shape, validation_data[1].shape, test_data[0].shape, test_data[1].shape,)
     return(training_data, validation_data, test_data)
 
-def load_data_wrapper_pg():
+def load_data_wrapper():
     tr_d, va_d, te_d = load_data()
     # training data should be a list containing 50,000 2-tuples (x, y) where x is a 784-dimensional numpy.ndarray with the input image and y is a 10-dimensional numpy.ndarray representing the unit vector corresponding to the correct digit for x
     #print(tr_d, len(tr_d), tr_d[0].shape, tr_d[1].shape)
@@ -34,7 +34,5 @@ def vectorized_result(j):
     e = np.zeros((10, 1))
     e[j] = 1.0
     return e
-
-print(load_data_wrapper_pg())
 
 # output are the images split into training, test and validation dataset    

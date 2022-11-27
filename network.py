@@ -1,5 +1,5 @@
 # testing how to commit and push stuff back to GitHub
-# TODO really understand these numpy arrays and what they represent
+# really understand these numpy arrays and what they represent
 
 import random
 import numpy as np
@@ -103,17 +103,17 @@ def sigmoid_prime(z):
 
 
 # Playing around with the class and its methods
-
+""" 
 net = Network([1, 1, 1])
 activ = sigmoid(-0.1)
 
 #print(net.num_layers)
 #print(net.sizes)
-"""print("Weights: ")
+print("Weights: ")
 print(net.weights)
 print("Biases: ")
 print(net.biases)
-"""
+
 print("zip of biases and weights: ")
 print(zip(net.biases, net.weights))
 print("Results of feedforward method: ")
@@ -123,3 +123,4 @@ net.feedforward([1])
 #print(np.random.randn(10))
 
 #print(activ)
+"""
