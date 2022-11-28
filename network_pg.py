@@ -100,28 +100,13 @@ def sigmoid(z):
 def sigmoid_prime(z):
   return sigmoid(z)*(1-sigmoid(z))
 
-
+net = Network([10, 20, 5])
+print(net.feedforward(1))
+#sgd
+#update mini batch
+#print(net.update_mini_batch([(1, 1), (1, 2)], 1.0))
+#print(net.backprop([(1)], [(1)]))
+print(net.evaluate([(1, 1)]))
+print(net.cost_derivative(1, 1))
 print(sigmoid(10))
-
-# Playing around with the class and its methods
-""" 
-net = Network([1, 1, 1])
-activ = sigmoid(-0.1)
-
-#print(net.num_layers)
-#print(net.sizes)
-print("Weights: ")
-print(net.weights)
-print("Biases: ")
-print(net.biases)
-
-print("zip of biases and weights: ")
-print(zip(net.biases, net.weights))
-print("Results of feedforward method: ")
-net.feedforward([1])
-#print(sigmoid(net.weights[0] * 1 + net.biases[0]))
-
-#print(np.random.randn(10))
-
-#print(activ)
-"""
+print(sigmoid_prime(10))

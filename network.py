@@ -16,7 +16,7 @@ import random
 # Third-party libraries
 import numpy as np
 
-class Network   (object):
+class Network(object):
 
     def __init__(self, sizes):
         """The list ``sizes`` contains the number of neurons in the
@@ -32,8 +32,9 @@ class Network   (object):
         self.num_layers = len(sizes)
         self.sizes = sizes
         self.biases = [np.random.randn(y, 1) for y in sizes[1:]]
-        self.weights = [np.random.randn(y, x)
-                        for x, y in zip(sizes[:-1], sizes[1:])]
+        #self.biases = [np.ones([1, 1]) for y in sizes[1:]]
+        self.weights = [np.random.randn(y, x) for x, y in zip(sizes[:-1], sizes[1:])]
+        #self.weights = [np.ones([1, 1]) for x, y in zip(sizes[:-1], sizes[1:])]
 
     def feedforward(self, a):
         """Return the output of the network if ``a`` is input."""
@@ -140,5 +141,13 @@ def sigmoid_prime(z):
     """Derivative of the sigmoid function."""
     return sigmoid(z)*(1-sigmoid(z))
 
-
+net = Network([10, 20, 5])
+print(net.feedforward(1))
+#sgd
+#update mini batch
+#print(net.update_mini_batch([(1, 1), (1, 2)], 1.0))
+#print(net.backprop([(1)], [(1)]))
+print(net.evaluate([(1, 1)]))
+print(net.cost_derivative(1, 1))
 print(sigmoid(10))
+print(sigmoid_prime(10))
