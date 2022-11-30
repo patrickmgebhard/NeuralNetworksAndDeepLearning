@@ -104,8 +104,10 @@ net = Network([10, 20, 5])
 print(net.feedforward(1))
 #sgd
 #update mini batch
-#print(net.update_mini_batch([(1, 1), (1, 2)], 1.0))
-#print(net.backprop([(1)], [(1)]))
+# fix matrices not aligned
+print(net.update_mini_batch([([1, 1], [1, 1]), ([1, 1], [1, 1])], 1.0))
+# fix matrices not aligned
+print(net.backprop([1, 1], [2, 2]))
 print(net.evaluate([(1, 1)]))
 print(net.cost_derivative(1, 1))
 print(sigmoid(10))
